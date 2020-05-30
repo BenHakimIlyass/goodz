@@ -16,8 +16,13 @@ export default function ProductScreen({ navigation }) {
     "https://images.unsplash.com/photo-1572635196243-4dd75fbdbd7f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80";
 
   return (
-    <Container navigation={navigation} back={'true'}>
+    <Container navigation={navigation} back={"true"}>
       <Img source={{ uri: URL }} />
+      <Cloison space={4} />
+      <P isBlack style={{ textAlign: "center" }}>
+        Fresh shampoo
+      </P>
+      <Brand>Febreze</Brand>
       <Cloison space={4} />
       <Description>
         We brought our heads (of hair) together to test the latest cleansing and
@@ -29,14 +34,11 @@ export default function ProductScreen({ navigation }) {
         out there, one that simply rocks the basics: clean, soft, good-smelling
         hair.
       </Description>
-      <Cloison space={4} />
 
-      <P isBlack style={{ textAlign: "center" }}>
-        Fresh shampoo
-      </P>
-      <Brand>Febreze</Brand>
+      <Cloison space={4} />
       <Price>189 MAD</Price>
       <OldPrice>225 MAD</OldPrice>
+      <Cloison space={4} />
       <Button style={inAxis}>Checkout</Button>
       <Cloison space={4} />
       <Button style={inAxis} pink>
@@ -54,7 +56,6 @@ const Description = styled(Text)`
   font-weight: 500;
   font-size: 16px;
   line-height: 24px;
-  letter-spacing: 1px;
   color: black;
 `;
 const Brand = styled(Text)`
@@ -67,8 +68,6 @@ const Brand = styled(Text)`
 `;
 const OldPrice = styled(Text)`
   font-size: 12px;
-  line-height: 36px;
-  padding-left: 4px;
   text-decoration-line: line-through;
   color: #232126;
   ${Center}
