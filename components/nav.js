@@ -8,24 +8,15 @@ import P from "./text";
 import Avatar from "./avatar";
 import Sidebar from "./sidebar";
 import Menu from "./menu";
-import { window, Cluster, Stack } from "./layouts";
+import { Cluster } from "./layouts";
 
 const Nav = ({ navigation, back }) => {
-  const object = useSelector((state) => state.sidebar);
+  const object = useSelector((state) => state.sidebar.sidebar);
+
   const transitions = useTransition(object, null, {
-    from: {
-      height: 0,
-      bottom: -20,
-    },
-    enter: {
-      width: window.width,
-      height: 0.6 * window.height,
-      bottom: -2,
-    },
-    leave: {
-      height: 0,
-      bottom: -20,
-    },
+    from: { opacity: 0 },
+    enter: { opacity: 1 },
+    leave: { opacity: 0 },
   });
   return (
     <>

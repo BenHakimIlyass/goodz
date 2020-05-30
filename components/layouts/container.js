@@ -23,6 +23,6 @@ const Frame = styled(View)`
   padding: 0px 4px;
   flex: 1;
   background-color: #fff;
-  padding-bottom: 90px;
+  padding-bottom: 80px;
 `;
 export default Container;

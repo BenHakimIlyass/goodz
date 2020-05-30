@@ -19,12 +19,12 @@ export const Cloison = styled(View)`
 `;
 
 /**Cluster */
-
 export const Cluster = styled(View)`
   display: flex;
   flex-direction: row;
   justify-content: ${(props) => props.justifyContent};
   align-items: ${(props) => props.alignItems};
+  flex-wrap: wrap;
 `;
 
 /**Container */
@@ -37,10 +37,12 @@ export const Stack = styled(View)`
   justify-content: space-around;
 `;
 
+/**center */
 export const Center = css`
   text-align: center;
 `;
 
+/**inAxis */
 export const inAxis = {
   marginLeft: "auto",
   marginRight: "auto",
@@ -53,5 +55,15 @@ export function borderRadius(arr) {
     borderTopRightRadius: arr[1],
     borderBottomRightRadius: arr[2],
     borderBottomLeftRadius: arr[3],
+  };
+}
+
+/**shadow */
+export function shadow(elevation) {
+  return {
+    elevation,
+    shadowColor: "black",
+    shadowOffset: { width: 4, height: 4 * elevation },
+    shadowRadius: elevation,
   };
 }

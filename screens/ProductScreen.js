@@ -44,6 +44,7 @@ export default function ProductScreen({ navigation }) {
       <Button style={inAxis} pink>
         Add to cart
       </Button>
+      <Cloison space={4} />
     </Container>
   );
 }

@@ -4,7 +4,7 @@ import { useSpring, animated } from "react-spring";
 import { View, TouchableOpacity } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
 const Menu = (props) => {
-  const object = useSelector((state) => state.sidebar);
+  const object = useSelector((state) => state.sidebar.sidebar);
   const set = useDispatch();
   const toggle = () =>
     object ? set({ type: "CLOSE_SIDEBAR" }) : set({ type: "OPEN_SIDEBAR" });

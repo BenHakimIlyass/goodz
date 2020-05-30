@@ -3,8 +3,8 @@ import * as React from "react";
 
 import TabBarIcon from "../components/TabBarIcon";
 import HomeScreen from "../screens/HomeScreen";
-import LinksScreen from "../screens/LinksScreen";
-import AboutScreen from "../screens/AboutScreen";
+import FavouriteScreen from "../screens/FavouriteScreen";
+import CartScreen from "../screens/CartScreen";
 
 const BottomTab = createBottomTabNavigator();
 const INITIAL_ROUTE_NAME = "Home";
@@ -30,13 +30,13 @@ export default function BottomTabNavigator({ navigation, route }) {
         options={{
           title: "Home",
           tabBarIcon: ({ focused }) => (
-            <TabBarIcon focused={focused} route={routeName} name="md-book" />
+            <TabBarIcon focused={focused} route={routeName} name="md-home" />
           ),
         }}
       />
       <BottomTab.Screen
         name="Cart"
-        component={AboutScreen}
+        component={CartScreen}
         options={{
           title: "Cart",
           tabBarIcon: ({ focused }) => (
@@ -46,7 +46,7 @@ export default function BottomTabNavigator({ navigation, route }) {
       />
       <BottomTab.Screen
         name="Favourite"
-        component={LinksScreen}
+        component={FavouriteScreen}
         options={{
           title: "Favourite",
           tabBarIcon: ({ focused }) => (

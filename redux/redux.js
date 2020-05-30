@@ -1,4 +1,8 @@
 import sidebar from "./sidebar";
-import { createStore } from "redux";
-
-export default createStore(sidebar);
+import product from "./product";
+import { createStore, combineReducers } from "redux";
+const reducers = {
+  sidebar: sidebar,
+  product: product,
+};
+export default createStore(combineReducers(reducers));
