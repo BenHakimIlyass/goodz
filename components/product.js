@@ -28,19 +28,18 @@ const Product = ({ isFavourite, isInCart, id, ...rest }) => {
     });
   };
   const router = useNavigation();
-
+  const hasSelect = () => isInCart || isFavourite;
   return (
     <Cluster alignItems="center">
-      {isInCart ||
-        (isFavourite && (
-          <Select onPress={setProducts}>
-            {state ? (
-              <Image source={require("../assets/images/toggleon.png")} />
-            ) : (
-              <Image source={require("../assets/images/toggleoff.png")} />
-            )}
-          </Select>
-        ))}
+      {hasSelect() && (
+        <Select onPress={setProducts}>
+          {state ? (
+            <Image source={require("../assets/images/toggleon.png")} />
+          ) : (
+            <Image source={require("../assets/images/toggleoff.png")} />
+          )}
+        </Select>
+      )}
       <TouchableOpacity {...rest} onPress={() => router.navigate("Product")}>
         <Cluster style={{ marginTop: 20 }}>
           <Img source={{ uri: URL }} />

@@ -3,8 +3,6 @@ import { View, ScrollView } from "react-native";
 import Nav from "../../components/nav";
 import styled from "styled-components";
 const Container = ({ children, ...props }) => {
-  console.log(props.back);
-
   return (
     <Frame>
       <Nav {...props} />

@@ -6,7 +6,6 @@ import { Cloison, Container, inAxis } from "../components/layouts/";
 import { useSelector } from "react-redux";
 export default function CartScreen() {
   const { products } = useSelector((state) => state.product);
-
   const arr = new Array(10).fill("");
   return (
     <Container>

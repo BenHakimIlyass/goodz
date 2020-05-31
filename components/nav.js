@@ -9,10 +9,11 @@ import Avatar from "./avatar";
 import Sidebar from "./sidebar";
 import Menu from "./menu";
 import { Cluster } from "./layouts";
+import { useNavigation } from "@react-navigation/native";
 
-const Nav = ({ navigation, back }) => {
+const Nav = ({ back }) => {
   const object = useSelector((state) => state.sidebar.sidebar);
-
+  const router = useNavigation();
   const transitions = useTransition(object, null, {
     from: { opacity: 0 },
     enter: { opacity: 1 },
@@ -22,6 +23,7 @@ const Nav = ({ navigation, back }) => {
     <>
       <Box style={{ width: "100%" }}>
         <P isBold>Goodz</P>
+
         <Avatar />
       </Box>
       {transitions.map(
@@ -33,7 +35,7 @@ const Nav = ({ navigation, back }) => {
         style={{ height: 30, top: 65 }}
       >
         {back ? (
-          <TouchableOpacity onPress={() => navigation.goBack()}>
+          <TouchableOpacity onPress={() => router.goBack()}>
             <Back source={require("../assets/images/arrow.png")} />
           </TouchableOpacity>
         ) : (

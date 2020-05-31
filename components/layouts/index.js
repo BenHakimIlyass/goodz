@@ -22,8 +22,9 @@ export const Cloison = styled(View)`
 export const Cluster = styled(View)`
   display: flex;
   flex-direction: row;
-  justify-content: ${(props) => props.justifyContent};
-  align-items: ${(props) => props.alignItems};
+  ${(props) =>
+    props.justifyContent && `justify-content: ${props.justifyContent}`};
+  ${(props) => props.alignItems && `align-items:${props.alignItems}`};
   flex-wrap: wrap;
 `;
 

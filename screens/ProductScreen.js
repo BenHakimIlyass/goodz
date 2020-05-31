@@ -16,7 +16,7 @@ export default function ProductScreen({ navigation }) {
     "https://images.unsplash.com/photo-1572635196243-4dd75fbdbd7f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80";
 
   return (
-    <Container navigation={navigation} back={"true"}>
+    <Container back>
       <Img source={{ uri: URL }} />
       <Cloison space={4} />
       <P isBlack style={{ textAlign: "center" }}>

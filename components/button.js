@@ -17,7 +17,13 @@ const Button = styled(({ children, ...props }) => (
   width: 180px;
   height: 36px;
   background-color: ${(props) =>
-    props.pink ? "#EDABC7" : props.yellow ? "#FEA40C" : "#18d1d5"};
+    props.pink
+      ? "#EDABC7"
+      : props.yellow
+      ? "#FEA40C"
+      : props.black
+      ? "#232126"
+      : "#18d1d5"};
   border-radius: 20px;
 `;
 export default Button;
