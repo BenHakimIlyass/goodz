@@ -2,10 +2,14 @@ import * as React from "react";
 import { View, ScrollView } from "react-native";
 import Nav from "../../components/nav";
 import styled from "styled-components";
+import { useSelector } from "react-redux";
+
 const Container = ({ children, ...props }) => {
+  const { user } = useSelector((state) => state.auth);
+
   return (
     <Frame>
-      <Nav {...props} />
+      {user && <Nav {...props} />}
       <Box>{children}</Box>
     </Frame>
   );

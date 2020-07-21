@@ -10,34 +10,28 @@ import {
   inAxis,
 } from "../components/layouts/";
 import P from "../components/text";
+import { useSelector } from "react-redux";
 import Button from "../components/button";
 export default function ProductScreen({ navigation }) {
   const URL =
     "https://images.unsplash.com/photo-1572635196243-4dd75fbdbd7f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80";
 
+  const data = useSelector((state) => state.currentProduct.currentProduct);
+  console.log("l", data);
   return (
     <Container back>
-      <Img source={{ uri: URL }} />
+      <Img source={{ uri: data.url }} />
       <Cloison space={4} />
       <P isBlack style={{ textAlign: "center" }}>
-        Fresh shampoo
+        {data.name}
       </P>
-      <Brand>Febreze</Brand>
+      <Brand>{data.brand}</Brand>
       <Cloison space={4} />
-      <Description>
-        We brought our heads (of hair) together to test the latest cleansing and
-        conditioning launches for this year's SELF Healthy Beauty Awards. The
-        curly girls took the co-washes, the bleach blondes tried the purple
-        shampoos, and the fine-haired ladies snatched up the foam conditioner
-        (yes, that does exist). In the end, we came up with a list of favorites
-        that span many hair types and textures—and for all the shampoo agnostics
-        out there, one that simply rocks the basics: clean, soft, good-smelling
-        hair.
-      </Description>
+      <Description>{data.body}</Description>
 
       <Cloison space={4} />
-      <Price>189 MAD</Price>
-      <OldPrice>225 MAD</OldPrice>
+      <Price>{data.price} MAD</Price>
+      <OldPrice>{data.oldPrice} MAD</OldPrice>
       <Cloison space={4} />
       <Button style={inAxis}>Checkout</Button>
       <Cloison space={4} />

@@ -10,9 +10,9 @@ const colors = {
 };
 
 const handleBg = (color) => colors[color];
-const InfoCard = ({ color, title, subTitle, data, image }) => {
+const InfoCard = ({ color, title, subTitle, data, image, ...rest }) => {
   return (
-    <TouchableOpacity style={{ marginRight: 20 }}>
+    <TouchableOpacity style={{ marginRight: 20 }} {...rest}>
       <Card colors={handleBg(color)}>
         {image ? (
           <Image

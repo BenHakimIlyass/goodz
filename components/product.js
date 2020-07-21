@@ -5,16 +5,14 @@ import P from "./text";
 import IconButton from "./iconButton";
 import { useNavigation } from "@react-navigation/native";
 import { useSelector, useDispatch } from "react-redux";
-const data = {
+const item = {
   id: "21234",
   name: "Fresh shampoo AIR",
   brand: "Febreze",
   price: "189",
   oldPrice: "225",
 };
-const URL =
-  "https://images.unsplash.com/photo-1572635196243-4dd75fbdbd7f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80";
-const Product = ({ isFavourite, isInCart, id, ...rest }) => {
+const Product = ({ isFavourite, isInCart, id, data, ...rest }) => {
   const [state, set] = React.useState(false);
   const { products } = useSelector((state) => state.product);
   const dispatch = useDispatch();
@@ -25,6 +23,12 @@ const Product = ({ isFavourite, isInCart, id, ...rest }) => {
     dispatch({
       type: "SET_PRODUCTS",
       products: !state ? [...products, id] : filter(products, id),
+    });
+  };
+  const setCurrentProducts = () => {
+    dispatch({
+      type: "SET_CURRENT_PRODUCT",
+      currentProduct: { ...data },
     });
   };
   const router = useNavigation();
@@ -40,15 +44,25 @@ const Product = ({ isFavourite, isInCart, id, ...rest }) => {
           )}
         </Select>
       )}
-      <TouchableOpacity {...rest} onPress={() => router.navigate("Product")}>
+      <TouchableOpacity
+        {...rest}
+        onPress={() => {
+          setCurrentProducts();
+          router.navigate("Product");
+        }}
+      >
         <Cluster style={{ marginTop: 20 }}>
-          <Img source={{ uri: URL }} />
+          <Img source={{ uri: data.url }} />
           <View style={{ marginTop: 30, marginLeft: 18 }}>
             <Cluster>
               <Price>{data.price} MAD</Price>
               <OldPrice>{data.oldPrice} MAD</OldPrice>
             </Cluster>
-            <P isBold>{data.name}</P>
+            <P isBold>
+              {data.name.length > 15
+                ? data.name.slice(0, 15) + "..."
+                : data.name}
+            </P>
             <Brand>{data.brand}</Brand>
             <Cluster style={{ justifyContent: "space-between", width: 90 }}>
               {!isInCart && (
