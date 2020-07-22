@@ -1,16 +1,21 @@
 import * as React from "react";
 import { View, ScrollView } from "react-native";
 import styled from "styled-components";
-import { Container, Cloison } from "../components/layouts/";
+import { Container, Cloison, inAxis } from "../components/layouts/";
 import P from "../components/text";
 import Product from "../components/product";
+import Button from "../components/button";
 import InfoCard from "../components/infoCard";
 import { useNavigation } from "@react-navigation/native";
-import data from "../data/choice3";
+import { data } from "../data/data";
 
 export default function HomeScreen() {
   const router = useNavigation();
-  const arr = new Array(10).fill("");
+  const [loadedData, loadData] = React.useState(6);
+  const [loadedRecommendations, loadRecommendations] = React.useState(6);
+  const loadMoreData = () => loadData(loadedData + 6);
+  const loadMoreRecommendations = () =>
+    loadRecommendations(loadedRecommendations + 6);
   return (
     <Container>
       <P isBlack>Home</P>
@@ -50,11 +55,29 @@ export default function HomeScreen() {
         </XScroll>
       </ScrollView>
       <Cloison space={5} />
-      <P isBlack>Recommended products</P>
+      <P isBlack>Store</P>
       <Cloison space={4} />
       {data.map((item, key) => (
-        <Product key={key} id={key} data={item} />
+        <>{key < loadedData && <Product key={key} id={key} data={item} />}</>
       ))}
+      <Cloison space={4} />
+      <Button onPress={loadMoreData} style={inAxis}>
+        Load more
+      </Button>
+      <Cloison space={4} />
+      <P isBlack>For you</P>
+      <Cloison space={4} />
+      {data.map((item, key) => (
+        <>
+          {key < loadedRecommendations && (
+            <Product key={key} id={key} data={item} />
+          )}
+        </>
+      ))}
+      <Cloison space={4} />
+      <Button onPress={loadMoreRecommendations} yellow style={inAxis}>
+        More recommendations
+      </Button>
       <Cloison space={4} />
     </Container>
   );

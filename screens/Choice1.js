@@ -5,7 +5,7 @@ import { Cloison, Container } from "../components/layouts/";
 import { useSelector } from "react-redux";
 import { Image } from "react-native";
 import styled from "styled-components";
-import data from "../data/choice1";
+import { data, recommended } from "../data/choice1";
 
 export default function Choice1() {
   return (
@@ -19,7 +19,7 @@ export default function Choice1() {
 
       <Cloison space={6} />
       <P isBlack>You can like also</P>
-      {data.map((item, key) => (
+      {recommended.map((item, key) => (
         <Product key={key} data={item} />
       ))}
 

@@ -66,10 +66,20 @@ const Product = ({ isFavourite, isInCart, id, data, ...rest }) => {
             <Brand>{data.brand}</Brand>
             <Cluster style={{ justifyContent: "space-between", width: 90 }}>
               {!isInCart && (
-                <IconButton source={require("../assets/images/cart.png")} />
+                <IconButton
+                  source={require("../assets/images/cart.png")}
+                  onPress={() =>
+                    dispatch({ type: "SEND_TO_CART", product: data })
+                  }
+                />
               )}
               {!isFavourite && (
-                <IconButton source={require("../assets/images/like.png")} />
+                <IconButton
+                  source={require("../assets/images/like.png")}
+                  onPress={() =>
+                    dispatch({ type: "SET_AS_FAVOURITE", product: data })
+                  }
+                />
               )}
             </Cluster>
           </View>

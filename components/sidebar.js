@@ -19,9 +19,16 @@ import {
 } from "./layouts";
 import P from "./text";
 import Button from "./button";
+import { useDispatch } from "react-redux";
 import IconicLink from "./iconicLink";
+import { useNavigation } from "@react-navigation/native";
+
 const Sidebar = (props) => {
   const [state, set] = React.useState(false);
+  const auth = useDispatch();
+
+  const router = useNavigation();
+
   const URL =
     "https://images.unsplash.com/photo-1590781585743-7b5fb00a0cc9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=661&q=80";
   return (
@@ -77,7 +84,14 @@ const Sidebar = (props) => {
             >
               Add amount
             </Button>
-            <Button style={{ ...inAxis, width: 120 }} black>
+            <Button
+              style={{ ...inAxis, width: 120 }}
+              black
+              onPress={() => {
+                auth({ type: "LOGOUT" });
+                router.navigate("Login");
+              }}
+            >
               Logout
             </Button>
           </Cluster>

@@ -10,14 +10,12 @@ import {
   inAxis,
 } from "../components/layouts/";
 import P from "../components/text";
-import { useSelector } from "react-redux";
 import Button from "../components/button";
-export default function ProductScreen({ navigation }) {
-  const URL =
-    "https://images.unsplash.com/photo-1572635196243-4dd75fbdbd7f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80";
+import { useSelector, useDispatch } from "react-redux";
 
+export default function ProductScreen({ navigation }) {
   const data = useSelector((state) => state.currentProduct.currentProduct);
-  console.log("l", data);
+  const dispatch = useDispatch();
   return (
     <Container back>
       <Img source={{ uri: data.url }} />
@@ -35,7 +33,11 @@ export default function ProductScreen({ navigation }) {
       <Cloison space={4} />
       <Button style={inAxis}>Checkout</Button>
       <Cloison space={4} />
-      <Button style={inAxis} pink>
+      <Button
+        style={inAxis}
+        pink
+        onPress={() => dispatch({ type: "SEND_TO_CART", product: data })}
+      >
         Add to cart
       </Button>
       <Cloison space={4} />

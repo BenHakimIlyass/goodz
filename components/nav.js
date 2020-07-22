@@ -13,6 +13,11 @@ import { useNavigation } from "@react-navigation/native";
 
 const Nav = ({ back }) => {
   const object = useSelector((state) => state.sidebar.sidebar);
+  const { user } = useSelector((state) => state.auth);
+
+  React.useEffect(() => {
+    () => router.navigate("Login");
+  }, [user]);
   const router = useNavigation();
   const transitions = useTransition(object, null, {
     from: { opacity: 0 },

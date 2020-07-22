@@ -1,4 +1,4 @@
-const choice2 = [
+export const data = [
   {
     id: "123423",
     name: "Natural Milk",
@@ -107,4 +107,47 @@ const choice2 = [
       "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80",
   },
 ];
-export default choice2;
+export const recommended = [
+  {
+    id: "744323",
+    name: "5L Natural Oil 100%",
+    body: `All Natural, First Cold Pressed, Maximum Acidity of 0.3%
+    Genuine, Unadulterated, 100% Extra Virgin Olive Oil
+    Gourmet / Foodservice Jugs with Pilfer Proof Screw Cap
+    These Gallon Jugs Are Ideal for High Frequency Users
+    Product of Baja California, Mexico; Bottled in Santa Fe Springs, California, USA`,
+    price: "109",
+    oldPrice: "112",
+    brand: "Goodz products",
+    url:
+      "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=661&q=80",
+  },
+  {
+    id: "123423",
+    name: "Natural Milk",
+    body: `REAL, ORGANIC MILK ON-THE-GO: Single-serve chocolate milk boxes are great for lunchboxes and on-the-go snacking
+    GET DHA THE EASY WAY: 32 milligrams of DHA Omega-3 and 8 grams of protein in every milk box
+    SHELF STABLE: Ultra-pasteurized (UHT) milk for easy, non-refrigerated storage
+    ORGANIC GOODNESS: Certified USDA Organic milk from happy cows raised by our trusted farmer partners
+    NON-GMO MILK from cows that are given no antibiotics, persistent pesticides, or added hormones`,
+    price: "9",
+    oldPrice: "12",
+    brand: "Itambe",
+    url:
+      "https://images.unsplash.com/photo-1563636619-e9143da7973b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=701&q=80",
+  },
+  {
+    id: "343253",
+    name: "Donuts Sugar Free",
+    body: `FLAVOR NOTES: Add light, fluffy, melt in your mouth donut with sweet and silky sugar glaze to your favorite beverage
+    0 Calories. 0 Sugar. 0 Carbs. Keto Friendly. Gluten Free. Kosher.
+    PERFECT ADDITION TO: Coffees, lattes, mochas,cappuccinos, desserts, oatmeal or just about anything.
+    HEALTHY DRINK RECIPES: Simply add Skinny Syrup to your coffee of choice for the perfect, guilt-free drink.
+    Served hot or cold`,
+    price: "49",
+    oldPrice: "80",
+    brand: "Free stock",
+    url:
+      "https://images.unsplash.com/photo-1551106652-a5bcf4b29ab6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=701&q=80",
+  },
+];

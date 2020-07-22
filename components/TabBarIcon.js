@@ -10,7 +10,7 @@ export default function TabBarIcon(props) {
       name={props.name}
       size={30}
       style={{ marginBottom: -3 }}
-      color={props.focused ? tabIconSelected : tabIconDefault}
+      color={props.focused ? props.color : tabIconDefault}
     />
   );
 }

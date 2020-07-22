@@ -1,7 +1,6 @@
 import * as React from "react";
 import P from "../components/text";
 import TextInput from "../components/input";
-import Product from "../components/product";
 import Button from "../components/button";
 import { Cloison, Container, Cluster, inAxis } from "../components/layouts/";
 import { useDispatch } from "react-redux";
@@ -67,6 +66,8 @@ export default function Login() {
         {...errorHandler}
         onChangeText={(pass) => writeUser({ password: pass })}
         value={user.password}
+        secureTextEntry={true}
+        textContentType="password"
         placeholder="Password..."
       />
       <Cloison space={4} />
@@ -79,27 +80,24 @@ export default function Login() {
         Register
       </P>
       <Cloison space={5} />
-      <TextInput
-        onChangeText={(user) => set(user)}
-        value={user.email}
-        placeholder="Email..."
-      />
+      <TextInput onChangeText={(user) => set(user)} placeholder="Email..." />
       <Cloison space={4} />
       <TextInput
         onChangeText={(email) => writeUser({ email: email })}
-        value={user.email}
         placeholder="Your name..."
       />
       <Cloison space={4} />
       <TextInput
         onChangeText={(user) => set(user)}
-        value={user.email}
+        secureTextEntry={true}
+        textContentType="password"
         placeholder="Password..."
       />
       <Cloison space={4} />
       <TextInput
         onChangeText={(user) => set(user)}
-        value={user.email}
+        secureTextEntry={true}
+        textContentType="password"
         placeholder="Confirm your password..."
       />
       <Cloison space={4} />
